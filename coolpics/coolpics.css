@@ -1,0 +1,390 @@
+ @import url("https://fonts.googleapis.com/css2?family=family=Mooli&display=swap");
+ :root 
+ {
+ --primary-color: #52489c;
+ --secondary-color: #59c3c3;
+ --accent-color: #f45b69;
+ --text-dark: #333;
+ --text-light: #ebebeb;
+ --primary-font: Arial, Helvetica,sans-serif;
+ --secondary-font: Mooli, san-serif;
+ }
+body {
+  font-family: var(--primary-font);
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+h1, h2 {
+  font-family: var(--secondary-font);
+  color: var(--text-light);
+}
+img {
+  max-width: 100%;
+  height: 250px;
+  width: 250;
+  object-fit: cover;
+}
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+  margin-top: 0;
+  position: relative;
+}
+header h2 {
+  margin-top: 1rem;
+  color: var(--text-light)
+}
+h1 {
+  margin-bottom: 1rem;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: transparent;
+}
+nav a{
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+main {
+  flex: 1;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
+h2 {
+  color: var(--text-dark);
+  text-align: center;
+  margin: 1rem, 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.gallery figure {
+  background: white;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  aspect-ratio: 1/1;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem;
+  width: 100;
+  margin-top: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.menu {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  display: inline;
+  margin-right: 20px;
+}
+.menu ul li a {
+  color: white;
+  text-decoration: underline;
+}
+.menu.hide {
+  display: flex;
+}
+
+/* Update viewer styles */
+.viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Adjust background opacity here (0.1 to 1.0) */
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.close-viewer {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.viewer img {
+    /* Adjust image size here */
+    width: 80vw;     /* Change this value to increase/decrease width */
+    height: 450px;    /* Change this value to increase/decrease height */
+    border-radius: 8px;
+    object-fit: contain; /* keeps image proportion */
+}
+
+.viewer.hide {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.menu-toggle .close-text {
+    display: none;
+}
+
+.menu-toggle.active .menu-text {
+    display: show;
+}
+
+.menu-toggle.active .close-text {
+    display: inline;
+}
+
+@media (min-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .viewer {
+        padding: 4rem;
+    }
+
+    .viewer img {
+        /* Adjust tablet size here */
+        width: 90vw;      /* Use viewport width for responsive sizing */
+        max-height: 85vh; /* Use viewport height for responsive sizing */
+    }
+
+    .close-viewer {
+        top: 3rem;
+        right: 3rem;
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .viewer img {
+        /* Adjust desktop size here */
+        width: 80vw;      /* Decrease percentage for smaller images */
+        max-height: 80vh; /* Decrease percentage for smaller images */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 1em;
+    }
+
+    header {
+        padding: 0.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .figure {
+        padding: 0.25rem;
+        max-width: 200px;
+    }
+
+    .figure img {
+        height: 200px;
+        width: 100%;
+    }
+
+    main {
+        padding: 0.5rem;
+        margin-bottom: 4rem;
+    }
+}
+
+/* Update media query to prevent mobile menu behavior */
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 0;
+    }
+    
+    .menu ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-bottom: 0;  /* Remove bottom margin */
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--primary-color);
+        padding: 3rem 1rem 1rem; /* Reduce top padding */
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .menu.show {
+        right: 0;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-top: 1rem;  /* Add space after close button */
+    }
+
+    .menu ul li {
+        display: block;
+        margin: 1rem 0;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        font-size: 1.1em;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .figure {
+        max-width: 250px;
+    }
+
+    .figure img {
+        width: 100%;
+        height: 100%;
+    }
+
+    main {
+        margin-bottom: 4.5rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .figure {
+        max-width: 280px;
+    }
+
+    .figure img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .figure {
+        max-width: 300px;
+    }
+
+    .figure img {
+        width: 100%;
+        height: 100%;
+    }
+
+    main {
+        padding: 2rem;
+        margin-bottom: 6rem;
+}
+    }
+
+a:link,
+a:visited {
+  color: var(--accent-color);
+}
