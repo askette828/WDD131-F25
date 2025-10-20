@@ -1,55 +1,42 @@
-const viewer = document.querySelector(".viewer");
-const viewerImage = viewer.querySelector("img");
-const closeViewerButton = document.querySelector(".close-viewer");
-const galleryImages = document.querySelectorAll(".gallery img");
-const menuToggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
+const menuButton = document.querySelector(".menu-button");
+const navMenu = document.querySelector(".header ul");
 
-// Hide viewer when page loads
-viewer.classList.add("hide");
-
-function openViewer(event) {
-    viewerImage.src = event.target.src;
-    viewerImage.alt = event.target.alt;
-    viewer.classList.remove("hide");
+// this funct will hide the menu at small screen
+function handleResize() {
+    if (window.innerWidth > 1000) {
+        navMenu.classList.remove("hide");
+    } else {
+        navMenu.classList.add("hide");
+    }
 }
 
-function closeViewer() {
-    viewer.classList.add("hide");
-    viewerImage.src = "";
+menuButton.addEventListener("click", () => {
+    navMenu.classList.toggle("hide");
+});
+
+window.addEventListener("resize", handleResize);
+window.addEventListener("load", handleResize);
+
+//point 08 for viewing image
+function viewerTemplate(picPath, altText) {
+    return `
+    <div class="viewer">
+      <button class="close-viewer">X</button>
+      <img src="${picPath}" alt="${altText}">
+    </div>`;
 }
 
-galleryImages.forEach(img => img.addEventListener("click", openViewer));
-closeViewerButton.addEventListener("click", closeViewer);
-
-// Close viewer when clicking outside the image
-viewer.addEventListener("click", (e) => {
-    if (e.target === viewer) {
-        closeViewer();
+function viewHandler(event) {
+    const clicked = event.target;
+    if (clicked.tagName === "IMG") {
+        const viewerHTML = viewerTemplate("norris-full.jpeg", clicked.alt);
+        document.body.insertAdjacentHTML("afterbegin", viewerHTML);
+        document
+            .querySelector(".close-viewer")
+            .addEventListener("click", () => {
+                document.querySelector(".viewer").remove();
+            });
     }
-});
+}
 
-// Close viewer with Escape key
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        closeViewer();
-    }
-});
-
-menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-        menu.classList.remove('show');
-    }
-});
-
-// Close menu when pressing escape
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        menu.classList.remove('show');
-    }
-});
+document.querySelector(".image-grid").addEventListener("click", viewHandler);

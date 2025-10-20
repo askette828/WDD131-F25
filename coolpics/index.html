@@ -1,57 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Coolpics is a website for amateur hikers to share photos form YellowStone">
-    <meta name="author" content="Dias Doktyrbek">
+    <meta name="description"
+        content="Cool Pics is a photography showcase featuring stunning shots of people and places. Explore our latest photo collections and creative works.">
+    <meta name="author" content="Cool Pics">
     <title>Cool Pics</title>
-    <link rel="stylesheet" href="coolpics.css">
+    <link rel="stylesheet" href="./coolpics.css">
 </head>
+
 <body>
-    <header>
-        <h1>Cool Pics 📷</h1>
-        <button class="menu-toggle">
-            <span class="menu-text">Menu</span>
-            <span class="close-text">x</span>
-        </button>
-        <nav class="menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">People</a></li>
-                <li><a href="#">Places</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+
+    <header class="header">
+        <h1 class="headline"> Cool Pics 📷</h1>
+        <button class="menu-button">Menu</button>
+        <ul type="none">
+            <li>
+                <a href="#"> Home</a>
+            </li>
+            <li>
+                <a href="#"> People</a>
+
+            </li>
+            <li>
+                <a href="#"> Places</a>
+
+            </li>
+            <li>
+                <a href="#"> About</a>
+
+            </li>
+            <li>
+                <a href="#"> Contact</a>
+
+            </li>
+        </ul>
     </header>
 
-    <div class="viewer hide">
-        <button class ="close viewer">X</button>
-        <img src="" alt="Expanded view">
-    </div>
+    <main class="gallery">
+        <h2>Current Work</h2>
 
-    <main>
-        <section class="gallery">
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-            <figure> <img src="norris-sm.jpeg" alt="picture"> </figure>
-        </section>
-    <figure>
-	    <img src="norris-sm.jpeg" alt="picture">
-    </figure>
+        <div class="image-grid">
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture">
+            </figure>
+
+        </div>
     </main>
+    <footer>©2023 Not a real site 😀</footer>
 
-    <footer>
-        <p>©2023 Not a real site 😀</p>
-    </footer>
 
-    <script>src = "coolpics.js"</script>
+
 </body>
+<script src="./coolpics.js">
+
+</script>
+
 </html>
