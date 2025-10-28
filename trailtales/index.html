@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description"
+        content="TrailTales — A personal hiking website sharing stories, photos, and tips from various trails." />
+    <meta name="author" content="Dias Doktyrbek">
+    <title>TrailTales — Personal Hiking Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="TrailTales home">
+                <img src="/TrailTales Logo Design (1) (1).png" alt="logo" width="40" height="40">
+                <span class="brand-text">TrailTales</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Hike Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="maincontent">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>TrailTales</h1>
+                    <p>Real hikes. Real stories. Find your next trail and read the story behind each photo.</p>
+                    <p><a class="btn" href="gallery.html">Explore Hikes</a></p>
+                </div>
+                <div class="hero-image" role="img" aria-label="Hiker on a mountain trail"
+                    style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60')">
+                </div>
+            </div>
+        </section>
+
+        <section class="container featured">
+            <h2>Hike of the Day</h2>
+            <div id="featuredCard" class="card">
+                <!-- Filled by JavaScript dynamically-->
+            </div>
+        </section>
+
+        <section id="about" class="container about">
+            <h2>About TrailTales</h2>
+            <p>
+                TrailTales is a personal hiking site where I log memorable hikes, share photos,
+                and write short trail stories and tips. Each hike entry contains a location,
+                difficulty, photos, and short notes. Use the gallery to filter and bookmark hikes.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> TrailTales</p>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

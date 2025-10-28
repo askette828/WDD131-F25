@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TrailTales — Hike Gallery</title>
+    <meta name="description" content="Gallery of hikes. Filter by region and difficulty, bookmark favorites.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="TrailTales home">
+                <img src="/TrailTales Logo Design (1) (1).png" alt="logo" width="40" height="40">
+                <span class="brand-text">TrailTales</span>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Hike Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="maincontent">
+        <section class="container controls">
+            <div class="filters-panel">
+                <label>
+                    Region:
+                    <select id="regionFilter">
+                        <option value="all">All</option>
+                    </select>
+                </label>
+
+                <label>
+                    Difficulty:
+                    <select id="difficultyFilter">
+                        <option value="all">All</option>
+                        <option value="easy">Easy</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </label>
+
+                <label>
+                    Search:
+                    <input id="searchInput" type="search" placeholder="search title or notes" />
+                </label>
+
+                <button id="clearFilters" class="btn">Clear</button>
+            </div>
+        </section>
+
+        <section class="container gallery-grid" id="gallery">
+            <!-- JavaScript will populate the hike cards here -->
+        </section>
+
+        <section class="container bookmarks">
+            <h3>Your Bookmarks</h3>
+            <div id="bookmarksList" class="bookmark-list">
+                <p class="muted">No bookmarks yet. Click the bookmark icon on a hike to save it.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for viewing image details -->
+    <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content" role="document">
+            <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="yearGallery"></span> TrailTales</p>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
